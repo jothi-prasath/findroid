@@ -20,8 +20,28 @@ jobs:
           distribution: temurin
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-      - name: Build TV APKs with Gradle
-        run: ./gradlew :app:tv:assembleRelease
+      - name: Build with Gradle
+        run: ./gradlew assembleRelease
+      - name: Upload artifact phone-libre-arm64-v8a-release.apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: phone-libre-arm64-v8a-release.apk
+          path: ./app/phone/build/outputs/apk/libre/release/phone-libre-arm64-v8a-release.apk
+      - name: Upload artifact phone-libre-armeabi-v7a-release.apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: phone-libre-armeabi-v7a-release.apk
+          path: ./app/phone/build/outputs/apk/libre/release/phone-libre-armeabi-v7a-release.apk
+      - name: Upload artifact phone-libre-x86_64-release.apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: phone-libre-x86_64-release.apk
+          path: ./app/phone/build/outputs/apk/libre/release/phone-libre-x86_64-release.apk
+      - name: Upload artifact phone-libre-x86-release.apk
+        uses: actions/upload-artifact@v3
+        with:
+          name: phone-libre-x86-release.apk
+          path: ./app/phone/build/outputs/apk/libre/release/phone-libre-x86-release.apk
       - name: Upload artifact tv-libre-arm64-v8a-release.apk
         uses: actions/upload-artifact@v3
         with:
