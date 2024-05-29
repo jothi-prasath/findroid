@@ -25,7 +25,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Build TV APKs with Gradle
-        run: ./gradlew :app:tv:assembleRelease
+        run: ./gradlew build
       - name: List files after build using tree
         run: |
           ls -R ./app/
