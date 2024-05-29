@@ -26,23 +26,26 @@ jobs:
         uses: gradle/gradle-build-action@v2
       - name: Build TV APKs with Gradle
         run: ./gradlew :app:tv:assembleRelease
-      - name: Upload artifact tv-libre-arm64-v8a-release.apk
+      - name: List files after build using tree
+        run: |
+          ls -R ./app/
+      - name: Upload artifact tv-libre-arm64-v8a.apk
         uses: actions/upload-artifact@v3
         with:
           name: tv-libre-arm64-v8a-release.apk
-          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-arm64-v8a-release.apk
+          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-arm64-v8a.apk
       - name: Upload artifact tv-libre-armeabi-v7a-release.apk
         uses: actions/upload-artifact@v3
         with:
           name: tv-libre-armeabi-v7a-release.apk
-          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-armeabi-v7a-release.apk
+          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-armeabi-v7a.apk
       - name: Upload artifact tv-libre-x86_64-release.apk
         uses: actions/upload-artifact@v3
         with:
           name: tv-libre-x86_64-release.apk
-          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-x86_64-release.apk
+          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-x86_64.apk
       - name: Upload artifact tv-libre-x86-release.apk
         uses: actions/upload-artifact@v3
         with:
           name: tv-libre-x86-release.apk
-          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-x86-release.apk
+          path: ./app/tv/build/outputs/apk/libre/release/tv-libre-x86.apk
